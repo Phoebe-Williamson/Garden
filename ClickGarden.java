@@ -37,5 +37,22 @@ public class ClickGarden
         for (Flower flower : flowerBed) {
             flower.draw();
         }
+        
+        UI.setMouseListener(this::doMouse);
+    }
+    
+    /**
+     * select the object based on where the user clicks
+     */
+    private void doMouse(String action, double x, double y) {
+        if (action.equals("clicked")) {
+            // check the lot of the x and y again the lot of the obj
+            for (Flower flower : flowerBed) {
+                if ((x >= flower.getLeft()) && ( x <= flower.getRight()) &&
+                (y >= flower.getTop()) && (y <= flower.getBottom())) {
+                    flower.grow();
+                }
+            }
+        }
     }
 }
