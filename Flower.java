@@ -68,7 +68,7 @@ public class Flower
      * get bottom
      */
     public double getBottom(){
-        return this.Bottom;
+        return this.bottom;
     }
     
     public void setLeft() {
@@ -94,6 +94,7 @@ public class Flower
      */
     public void draw() {
         final int STEMWIDTH = 2;
+        final int WAITTIME = 500;
         // draw stem
         UI.setColor(Color.green);    // set color of the stem
         UI.setLineWidth(STEMWIDTH);  // set width of the stem
@@ -102,7 +103,7 @@ public class Flower
         // draw flower
         UI.setColor(this.color); // set color of the flower
         UI.fillOval(left, top, flowerSize, flowerSize); // draw the flower
-        UI.sleep(500);    //wait
+        UI.sleep(WAITTIME);    //wait
         
     }
     
@@ -110,6 +111,7 @@ public class Flower
      * erase a rectangle around the surrent instance
      */
     public void erase() {
+        final int BUFFER = 1;
         UI.eraseRect(left, top, flowerSize+1, bottom+1);
     }
     
@@ -117,6 +119,7 @@ public class Flower
      * make the flower grow
      */
     public void grow() {
+        final int GROWSIZE = 10;
         this.erase();   // erase the flower
         this.flowerY -=10;  // increase folwer height
         this.flowerSize +=10;   // increase the size of the bulb
